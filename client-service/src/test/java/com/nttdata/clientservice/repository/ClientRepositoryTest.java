@@ -1,7 +1,6 @@
 package com.nttdata.clientservice.repository;
 
 import static org.assertj.core.api.Assertions.assertThat;
-import static org.junit.jupiter.api.Assertions.*;
 
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
@@ -30,16 +29,14 @@ class ClientRepositoryTest {
 	    client.setName("Galo");
 	    client.setPhone("09927298");
 	    client.setIdentification("1709689002");
+	    client.setPassword("12345");
 	    client.setStatus(true);
 	    
 	    entityManager.persist(client);
 		
 	}
 
-	@Test
-	void test() {
-		fail("Not yet implemented");
-	}
+
 	
 	@Test
 	public void whenFindByName_thenReturnClient() {
@@ -52,6 +49,8 @@ class ClientRepositoryTest {
 	    client.setPhone("0999273956");
 	    client.setStatus(true);
 	    client.setIdentification("1719097733");
+	    client.setPassword("12345");
+
 	    entityManager.persist(client);
 
 	    // when

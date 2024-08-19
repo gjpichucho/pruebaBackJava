@@ -73,7 +73,7 @@ public class MovementController {
     @ApiOperation(value = "Obtener todos los movimientos de una cuenta", notes = "<b>Ejemplo de envio</b><br> URL: http://localhost:9012/movement/idAccount/{idAccount}")
     @ApiResponses(value = {
             @ApiResponse(code = 200, message = "lista de movimientos por cuenta recuperada con exito ") })
-    public List<MovementDto> getAllByClient(@PathVariable("idAccount") Long idAccount) {
+    public List<MovementDto> getAllByAccount(@PathVariable("idAccount") Long idAccount) {
         return movementService.getAllMovementsByAccount(idAccount);
     }
 

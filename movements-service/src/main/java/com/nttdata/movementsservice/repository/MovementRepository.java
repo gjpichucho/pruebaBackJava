@@ -10,8 +10,6 @@ import org.springframework.stereotype.Repository;
 import com.nttdata.movementsservice.model.entities.Account;
 import com.nttdata.movementsservice.model.entities.Movement;
 
-
-
 @Repository
 public interface MovementRepository extends JpaRepository<Movement, Long>, JpaSpecificationExecutor<Movement> {
 
