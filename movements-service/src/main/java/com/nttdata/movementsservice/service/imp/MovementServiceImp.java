@@ -77,7 +77,7 @@ public class MovementServiceImp implements IMovementService {
             }
 
             movement.setValue(newMovement.getValue());
-            movement.setBalance(movements.get(0).getBalance().subtract(newMovement.getValue()));
+            movement.setBalance(movements.get(0).getBalance().subtract(newMovement.getValue().abs()));
             movement.setDateMovement(new Date());
         }
         
