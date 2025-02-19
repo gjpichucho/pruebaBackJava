@@ -1,0 +1,3113 @@
+{
+	"info": {
+		"_postman_id": "a6de682e-e9b6-4841-bcd0-8cc70b94b992",
+		"name": "PruebaNTTDATA",
+		"description": "Api Documentation",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "9012494"
+	},
+	"item": [
+		{
+			"name": "account",
+			"item": [
+				{
+					"name": "create",
+					"item": [
+						{
+							"name": "Crear una cuenta para un cliente",
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									},
+									{
+										"key": "Accept",
+										"value": "*/*"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n  \"accountNumber\": \"478758\",\n  \"idClient\": 1,\n  \"initialBalance\": 100,\n  \"status\": true,\n  \"typeAccount\": \"CORRIENTE\"\n}",
+									"options": {
+										"raw": {
+											"headerFamily": "json",
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{baseUrl}}/account/create",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"account",
+										"create"
+									]
+								},
+								"description": "<b>Ejemplo de envio</b><br> URL: http://localhost:9012/account/create<br><b>Se debe ingresar todos los atributos pertinenetes a la cuenta (numero de cuenta, saldo inicial, cliente, estado, tipo de cuenta)</b><br> Tipo de Cuenta ->  AHORRO, CORRIENTE"
+							},
+							"response": [
+								{
+									"name": "Cliente registrado con exito",
+									"originalRequest": {
+										"method": "POST",
+										"header": [
+											{
+												"key": "Content-Type",
+												"value": "application/json"
+											},
+											{
+												"key": "Accept",
+												"value": "*/*"
+											}
+										],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n  \"accountNumber\": \"478758\",\n  \"idClient\": 1,\n  \"initialBalance\": 100,\n  \"status\": true,\n  \"typeAccount\": \"CORRIENTE\"\n}",
+											"options": {
+												"raw": {
+													"headerFamily": "json",
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{baseUrl}}/account/create",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"account",
+												"create"
+											]
+										}
+									},
+									"status": "OK",
+									"code": 200,
+									"_postman_previewlanguage": "plain",
+									"header": [
+										{
+											"key": "Vary",
+											"value": "Origin"
+										},
+										{
+											"key": "Vary",
+											"value": "Access-Control-Request-Method"
+										},
+										{
+											"key": "Vary",
+											"value": "Access-Control-Request-Headers"
+										},
+										{
+											"key": "Content-Type",
+											"value": "text/plain;charset=UTF-8"
+										},
+										{
+											"key": "Content-Length",
+											"value": "18"
+										},
+										{
+											"key": "Date",
+											"value": "Fri, 19 Jul 2024 16:11:15 GMT"
+										},
+										{
+											"key": "Keep-Alive",
+											"value": "timeout=60"
+										},
+										{
+											"key": "Connection",
+											"value": "keep-alive"
+										}
+									],
+									"cookie": [],
+									"body": "Cuenta Registrada!"
+								},
+								{
+									"name": "No se puede registrar el cliente",
+									"originalRequest": {
+										"method": "POST",
+										"header": [
+											{
+												"key": "Content-Type",
+												"value": "application/json"
+											},
+											{
+												"key": "Accept",
+												"value": "*/*"
+											}
+										],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n  \"accountNumber\": \"478758\",\n  \"idClient\": 17,\n  \"initialBalance\": 100,\n  \"status\": true,\n  \"typeAccount\": \"CORRIENTE\"\n}",
+											"options": {
+												"raw": {
+													"headerFamily": "json",
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{baseUrl}}/account/create",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"account",
+												"create"
+											]
+										}
+									},
+									"status": "Bad Request",
+									"code": 400,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "Vary",
+											"value": "Origin"
+										},
+										{
+											"key": "Vary",
+											"value": "Access-Control-Request-Method"
+										},
+										{
+											"key": "Vary",
+											"value": "Access-Control-Request-Headers"
+										},
+										{
+											"key": "Content-Type",
+											"value": "application/json"
+										},
+										{
+											"key": "Transfer-Encoding",
+											"value": "chunked"
+										},
+										{
+											"key": "Date",
+											"value": "Fri, 19 Jul 2024 16:16:01 GMT"
+										},
+										{
+											"key": "Connection",
+											"value": "close"
+										}
+									],
+									"cookie": [],
+									"body": "{\n    \"message\": \"Cliente con Id: 17 no encontrado\",\n    \"messageDebug\": \" cliente no encontrado, proporcione un id correcto\",\n    \"status\": \"BAD_REQUEST\",\n    \"timestamp\": \"2024-07-19 11:16:01\",\n    \"subErrors\": null\n}"
+								}
+							]
+						}
+					]
+				},
+				{
+					"name": "delete",
+					"item": [
+						{
+							"name": "{id}",
+							"item": [
+								{
+									"name": "Eliminar una cuenta por su id",
+									"request": {
+										"method": "DELETE",
+										"header": [
+											{
+												"key": "Accept",
+												"value": "*/*"
+											}
+										],
+										"url": {
+											"raw": "{{baseUrl}}/account/delete/:id",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"account",
+												"delete",
+												":id"
+											],
+											"variable": [
+												{
+													"key": "id",
+													"value": "<long>",
+													"description": "(Required) id"
+												}
+											]
+										},
+										"description": "<b>Ejemplo de envio</b><br> URL: http://localhost:9012/account/delete/{id}<br><b>El parametro id corresponde al id de la cuenta"
+									},
+									"response": [
+										{
+											"name": "OK",
+											"originalRequest": {
+												"method": "DELETE",
+												"header": [
+													{
+														"key": "Accept",
+														"value": "*/*"
+													}
+												],
+												"url": {
+													"raw": "{{baseUrl}}/account/delete/:id",
+													"host": [
+														"{{baseUrl}}"
+													],
+													"path": [
+														"account",
+														"delete",
+														":id"
+													],
+													"variable": [
+														{
+															"key": "id"
+														}
+													]
+												}
+											},
+											"status": "OK",
+											"code": 200,
+											"_postman_previewlanguage": "text",
+											"header": [
+												{
+													"key": "Content-Type",
+													"value": "*/*"
+												}
+											],
+											"cookie": [],
+											"body": "{}"
+										},
+										{
+											"name": "No Content",
+											"originalRequest": {
+												"method": "DELETE",
+												"header": [],
+												"url": {
+													"raw": "{{baseUrl}}/account/delete/:id",
+													"host": [
+														"{{baseUrl}}"
+													],
+													"path": [
+														"account",
+														"delete",
+														":id"
+													],
+													"variable": [
+														{
+															"key": "id"
+														}
+													]
+												}
+											},
+											"status": "No Content",
+											"code": 204,
+											"_postman_previewlanguage": "text",
+											"header": [],
+											"cookie": [],
+											"body": ""
+										},
+										{
+											"name": "Unauthorized",
+											"originalRequest": {
+												"method": "DELETE",
+												"header": [],
+												"url": {
+													"raw": "{{baseUrl}}/account/delete/:id",
+													"host": [
+														"{{baseUrl}}"
+													],
+													"path": [
+														"account",
+														"delete",
+														":id"
+													],
+													"variable": [
+														{
+															"key": "id"
+														}
+													]
+												}
+											},
+											"status": "Unauthorized",
+											"code": 401,
+											"_postman_previewlanguage": "text",
+											"header": [],
+											"cookie": [],
+											"body": ""
+										},
+										{
+											"name": "Forbidden",
+											"originalRequest": {
+												"method": "DELETE",
+												"header": [],
+												"url": {
+													"raw": "{{baseUrl}}/account/delete/:id",
+													"host": [
+														"{{baseUrl}}"
+													],
+													"path": [
+														"account",
+														"delete",
+														":id"
+													],
+													"variable": [
+														{
+															"key": "id"
+														}
+													]
+												}
+											},
+											"status": "Forbidden",
+											"code": 403,
+											"_postman_previewlanguage": "text",
+											"header": [],
+											"cookie": [],
+											"body": ""
+										}
+									]
+								}
+							]
+						}
+					]
+				},
+				{
+					"name": "get",
+					"item": [
+						{
+							"name": "all",
+							"item": [
+								{
+									"name": "Obtener todas las cuentas",
+									"request": {
+										"method": "GET",
+										"header": [
+											{
+												"key": "Accept",
+												"value": "*/*"
+											}
+										],
+										"url": {
+											"raw": "{{baseUrl}}/account/get/all",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"account",
+												"get",
+												"all"
+											]
+										},
+										"description": "<b>Ejemplo de envio</b><br> URL: http://localhost:9012/account/all"
+									},
+									"response": [
+										{
+											"name": "lista de cuentas recuperada con exito ",
+											"originalRequest": {
+												"method": "GET",
+												"header": [
+													{
+														"key": "Accept",
+														"value": "*/*"
+													}
+												],
+												"url": {
+													"raw": "{{baseUrl}}/account/get/all",
+													"host": [
+														"{{baseUrl}}"
+													],
+													"path": [
+														"account",
+														"get",
+														"all"
+													]
+												}
+											},
+											"status": "OK",
+											"code": 200,
+											"_postman_previewlanguage": "text",
+											"header": [
+												{
+													"key": "Content-Type",
+													"value": "*/*"
+												}
+											],
+											"cookie": [],
+											"body": "[\n  {\n    \"initialBalance\": \"<number>\",\n    \"nameClient\": \"<string>\",\n    \"numberAccount\": \"<string>\",\n    \"status\": \"<string>\",\n    \"typeAccount\": \"<string>\"\n  },\n  {\n    \"initialBalance\": \"<number>\",\n    \"nameClient\": \"<string>\",\n    \"numberAccount\": \"<string>\",\n    \"status\": \"<string>\",\n    \"typeAccount\": \"<string>\"\n  }\n]"
+										},
+										{
+											"name": "Unauthorized",
+											"originalRequest": {
+												"method": "GET",
+												"header": [],
+												"url": {
+													"raw": "{{baseUrl}}/account/get/all",
+													"host": [
+														"{{baseUrl}}"
+													],
+													"path": [
+														"account",
+														"get",
+														"all"
+													]
+												}
+											},
+											"status": "Unauthorized",
+											"code": 401,
+											"_postman_previewlanguage": "text",
+											"header": [],
+											"cookie": [],
+											"body": ""
+										},
+										{
+											"name": "Forbidden",
+											"originalRequest": {
+												"method": "GET",
+												"header": [],
+												"url": {
+													"raw": "{{baseUrl}}/account/get/all",
+													"host": [
+														"{{baseUrl}}"
+													],
+													"path": [
+														"account",
+														"get",
+														"all"
+													]
+												}
+											},
+											"status": "Forbidden",
+											"code": 403,
+											"_postman_previewlanguage": "text",
+											"header": [],
+											"cookie": [],
+											"body": ""
+										},
+										{
+											"name": "Not Found",
+											"originalRequest": {
+												"method": "GET",
+												"header": [],
+												"url": {
+													"raw": "{{baseUrl}}/account/get/all",
+													"host": [
+														"{{baseUrl}}"
+													],
+													"path": [
+														"account",
+														"get",
+														"all"
+													]
+												}
+											},
+											"status": "Not Found",
+											"code": 404,
+											"_postman_previewlanguage": "text",
+											"header": [],
+											"cookie": [],
+											"body": ""
+										}
+									]
+								}
+							]
+						},
+						{
+							"name": "idClient",
+							"item": [
+								{
+									"name": "{idClient}",
+									"item": [
+										{
+											"name": "Obtener todas las cuentas de un cliente",
+											"request": {
+												"method": "GET",
+												"header": [
+													{
+														"key": "Accept",
+														"value": "*/*"
+													}
+												],
+												"url": {
+													"raw": "{{baseUrl}}/account/get/idClient/:idClient",
+													"host": [
+														"{{baseUrl}}"
+													],
+													"path": [
+														"account",
+														"get",
+														"idClient",
+														":idClient"
+													],
+													"variable": [
+														{
+															"key": "idClient",
+															"value": "1",
+															"description": "(Required) idClient"
+														}
+													]
+												},
+												"description": "<b>Ejemplo de envio</b><br> URL: http://localhost:9012/account/idClient/{idClient}"
+											},
+											"response": [
+												{
+													"name": "lista de cuentas por cliente recuperada con exito ",
+													"originalRequest": {
+														"method": "GET",
+														"header": [
+															{
+																"key": "Accept",
+																"value": "*/*"
+															}
+														],
+														"url": {
+															"raw": "{{baseUrl}}/account/get/idClient/:idClient",
+															"host": [
+																"{{baseUrl}}"
+															],
+															"path": [
+																"account",
+																"get",
+																"idClient",
+																":idClient"
+															],
+															"variable": [
+																{
+																	"key": "idClient"
+																}
+															]
+														}
+													},
+													"status": "OK",
+													"code": 200,
+													"_postman_previewlanguage": "text",
+													"header": [
+														{
+															"key": "Content-Type",
+															"value": "*/*"
+														}
+													],
+													"cookie": [],
+													"body": "[\n  {\n    \"accountNumber\": \"<string>\",\n    \"id\": \"<long>\",\n    \"initialBalance\": \"<number>\",\n    \"status\": \"<boolean>\",\n    \"typeAccount\": \"CORRIENTE\"\n  },\n  {\n    \"accountNumber\": \"<string>\",\n    \"id\": \"<long>\",\n    \"initialBalance\": \"<number>\",\n    \"status\": \"<boolean>\",\n    \"typeAccount\": \"CORRIENTE\"\n  }\n]"
+												},
+												{
+													"name": "Unauthorized",
+													"originalRequest": {
+														"method": "GET",
+														"header": [],
+														"url": {
+															"raw": "{{baseUrl}}/account/get/idClient/:idClient",
+															"host": [
+																"{{baseUrl}}"
+															],
+															"path": [
+																"account",
+																"get",
+																"idClient",
+																":idClient"
+															],
+															"variable": [
+																{
+																	"key": "idClient"
+																}
+															]
+														}
+													},
+													"status": "Unauthorized",
+													"code": 401,
+													"_postman_previewlanguage": "text",
+													"header": [],
+													"cookie": [],
+													"body": ""
+												},
+												{
+													"name": "Forbidden",
+													"originalRequest": {
+														"method": "GET",
+														"header": [],
+														"url": {
+															"raw": "{{baseUrl}}/account/get/idClient/:idClient",
+															"host": [
+																"{{baseUrl}}"
+															],
+															"path": [
+																"account",
+																"get",
+																"idClient",
+																":idClient"
+															],
+															"variable": [
+																{
+																	"key": "idClient"
+																}
+															]
+														}
+													},
+													"status": "Forbidden",
+													"code": 403,
+													"_postman_previewlanguage": "text",
+													"header": [],
+													"cookie": [],
+													"body": ""
+												},
+												{
+													"name": "Not Found",
+													"originalRequest": {
+														"method": "GET",
+														"header": [],
+														"url": {
+															"raw": "{{baseUrl}}/account/get/idClient/:idClient",
+															"host": [
+																"{{baseUrl}}"
+															],
+															"path": [
+																"account",
+																"get",
+																"idClient",
+																":idClient"
+															],
+															"variable": [
+																{
+																	"key": "idClient"
+																}
+															]
+														}
+													},
+													"status": "Not Found",
+													"code": 404,
+													"_postman_previewlanguage": "text",
+													"header": [],
+													"cookie": [],
+													"body": ""
+												}
+											]
+										}
+									]
+								}
+							]
+						},
+						{
+							"name": "{id}",
+							"item": [
+								{
+									"name": "Obtener cuenta por su id",
+									"request": {
+										"method": "GET",
+										"header": [
+											{
+												"key": "Accept",
+												"value": "*/*"
+											}
+										],
+										"url": {
+											"raw": "{{baseUrl}}/account/get/:id",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"account",
+												"get",
+												":id"
+											],
+											"variable": [
+												{
+													"key": "id",
+													"value": "<long>",
+													"description": "(Required) id"
+												}
+											]
+										},
+										"description": "<b>Ejemplo de envio</b><br> URL: http://localhost:9012/account/{id}"
+									},
+									"response": [
+										{
+											"name": "Cuenta recuperada con exito ",
+											"originalRequest": {
+												"method": "GET",
+												"header": [
+													{
+														"key": "Accept",
+														"value": "*/*"
+													}
+												],
+												"url": {
+													"raw": "{{baseUrl}}/account/get/:id",
+													"host": [
+														"{{baseUrl}}"
+													],
+													"path": [
+														"account",
+														"get",
+														":id"
+													],
+													"variable": [
+														{
+															"key": "id"
+														}
+													]
+												}
+											},
+											"status": "OK",
+											"code": 200,
+											"_postman_previewlanguage": "text",
+											"header": [
+												{
+													"key": "Content-Type",
+													"value": "*/*"
+												}
+											],
+											"cookie": [],
+											"body": "{\n  \"accountNumber\": \"<string>\",\n  \"id\": \"<long>\",\n  \"initialBalance\": \"<number>\",\n  \"status\": \"<boolean>\",\n  \"typeAccount\": \"CORRIENTE\"\n}"
+										},
+										{
+											"name": "Unauthorized",
+											"originalRequest": {
+												"method": "GET",
+												"header": [],
+												"url": {
+													"raw": "{{baseUrl}}/account/get/:id",
+													"host": [
+														"{{baseUrl}}"
+													],
+													"path": [
+														"account",
+														"get",
+														":id"
+													],
+													"variable": [
+														{
+															"key": "id"
+														}
+													]
+												}
+											},
+											"status": "Unauthorized",
+											"code": 401,
+											"_postman_previewlanguage": "text",
+											"header": [],
+											"cookie": [],
+											"body": ""
+										},
+										{
+											"name": "Forbidden",
+											"originalRequest": {
+												"method": "GET",
+												"header": [],
+												"url": {
+													"raw": "{{baseUrl}}/account/get/:id",
+													"host": [
+														"{{baseUrl}}"
+													],
+													"path": [
+														"account",
+														"get",
+														":id"
+													],
+													"variable": [
+														{
+															"key": "id"
+														}
+													]
+												}
+											},
+											"status": "Forbidden",
+											"code": 403,
+											"_postman_previewlanguage": "text",
+											"header": [],
+											"cookie": [],
+											"body": ""
+										},
+										{
+											"name": "Not Found",
+											"originalRequest": {
+												"method": "GET",
+												"header": [],
+												"url": {
+													"raw": "{{baseUrl}}/account/get/:id",
+													"host": [
+														"{{baseUrl}}"
+													],
+													"path": [
+														"account",
+														"get",
+														":id"
+													],
+													"variable": [
+														{
+															"key": "id"
+														}
+													]
+												}
+											},
+											"status": "Not Found",
+											"code": 404,
+											"_postman_previewlanguage": "text",
+											"header": [],
+											"cookie": [],
+											"body": ""
+										}
+									]
+								}
+							]
+						}
+					]
+				},
+				{
+					"name": "update",
+					"item": [
+						{
+							"name": "{id}",
+							"item": [
+								{
+									"name": "Editar una cuenta por su id",
+									"request": {
+										"method": "PUT",
+										"header": [
+											{
+												"key": "Content-Type",
+												"value": "application/json"
+											},
+											{
+												"key": "Accept",
+												"value": "*/*"
+											}
+										],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n  \"accountNumber\": \"<string>\",\n  \"idClient\": \"<long>\",\n  \"status\": \"<boolean>\",\n  \"typeAccount\": \"AHORRO\"\n}",
+											"options": {
+												"raw": {
+													"headerFamily": "json",
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{baseUrl}}/account/update/:id",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"account",
+												"update",
+												":id"
+											],
+											"variable": [
+												{
+													"key": "id",
+													"value": "<long>",
+													"description": "(Required) id"
+												}
+											]
+										},
+										"description": "<b>Ejemplo de envio</b><br> URL: http://localhost:9012/account/update/{id}<br><b>El parametro id corresponde al id de la cuenta"
+									},
+									"response": [
+										{
+											"name": "OK",
+											"originalRequest": {
+												"method": "PUT",
+												"header": [
+													{
+														"key": "Content-Type",
+														"value": "application/json"
+													},
+													{
+														"key": "Accept",
+														"value": "*/*"
+													}
+												],
+												"body": {
+													"mode": "raw",
+													"raw": "{\n  \"accountNumber\": \"<string>\",\n  \"idClient\": \"<long>\",\n  \"status\": \"<boolean>\",\n  \"typeAccount\": \"AHORRO\"\n}",
+													"options": {
+														"raw": {
+															"headerFamily": "json",
+															"language": "json"
+														}
+													}
+												},
+												"url": {
+													"raw": "{{baseUrl}}/account/update/:id",
+													"host": [
+														"{{baseUrl}}"
+													],
+													"path": [
+														"account",
+														"update",
+														":id"
+													],
+													"variable": [
+														{
+															"key": "id"
+														}
+													]
+												}
+											},
+											"status": "OK",
+											"code": 200,
+											"_postman_previewlanguage": "text",
+											"header": [
+												{
+													"key": "Content-Type",
+													"value": "*/*"
+												}
+											],
+											"cookie": [],
+											"body": "{}"
+										},
+										{
+											"name": "Created",
+											"originalRequest": {
+												"method": "PUT",
+												"header": [
+													{
+														"key": "Content-Type",
+														"value": "application/json"
+													}
+												],
+												"body": {
+													"mode": "raw",
+													"raw": "{\n  \"accountNumber\": \"<string>\",\n  \"idClient\": \"<long>\",\n  \"status\": \"<boolean>\",\n  \"typeAccount\": \"AHORRO\"\n}",
+													"options": {
+														"raw": {
+															"headerFamily": "json",
+															"language": "json"
+														}
+													}
+												},
+												"url": {
+													"raw": "{{baseUrl}}/account/update/:id",
+													"host": [
+														"{{baseUrl}}"
+													],
+													"path": [
+														"account",
+														"update",
+														":id"
+													],
+													"variable": [
+														{
+															"key": "id"
+														}
+													]
+												}
+											},
+											"status": "Created",
+											"code": 201,
+											"_postman_previewlanguage": "text",
+											"header": [],
+											"cookie": [],
+											"body": ""
+										},
+										{
+											"name": "Unauthorized",
+											"originalRequest": {
+												"method": "PUT",
+												"header": [
+													{
+														"key": "Content-Type",
+														"value": "application/json"
+													}
+												],
+												"body": {
+													"mode": "raw",
+													"raw": "{\n  \"accountNumber\": \"<string>\",\n  \"idClient\": \"<long>\",\n  \"status\": \"<boolean>\",\n  \"typeAccount\": \"AHORRO\"\n}",
+													"options": {
+														"raw": {
+															"headerFamily": "json",
+															"language": "json"
+														}
+													}
+												},
+												"url": {
+													"raw": "{{baseUrl}}/account/update/:id",
+													"host": [
+														"{{baseUrl}}"
+													],
+													"path": [
+														"account",
+														"update",
+														":id"
+													],
+													"variable": [
+														{
+															"key": "id"
+														}
+													]
+												}
+											},
+											"status": "Unauthorized",
+											"code": 401,
+											"_postman_previewlanguage": "text",
+											"header": [],
+											"cookie": [],
+											"body": ""
+										},
+										{
+											"name": "Forbidden",
+											"originalRequest": {
+												"method": "PUT",
+												"header": [
+													{
+														"key": "Content-Type",
+														"value": "application/json"
+													}
+												],
+												"body": {
+													"mode": "raw",
+													"raw": "{\n  \"accountNumber\": \"<string>\",\n  \"idClient\": \"<long>\",\n  \"status\": \"<boolean>\",\n  \"typeAccount\": \"AHORRO\"\n}",
+													"options": {
+														"raw": {
+															"headerFamily": "json",
+															"language": "json"
+														}
+													}
+												},
+												"url": {
+													"raw": "{{baseUrl}}/account/update/:id",
+													"host": [
+														"{{baseUrl}}"
+													],
+													"path": [
+														"account",
+														"update",
+														":id"
+													],
+													"variable": [
+														{
+															"key": "id"
+														}
+													]
+												}
+											},
+											"status": "Forbidden",
+											"code": 403,
+											"_postman_previewlanguage": "text",
+											"header": [],
+											"cookie": [],
+											"body": ""
+										},
+										{
+											"name": "Not Found",
+											"originalRequest": {
+												"method": "PUT",
+												"header": [
+													{
+														"key": "Content-Type",
+														"value": "application/json"
+													}
+												],
+												"body": {
+													"mode": "raw",
+													"raw": "{\n  \"accountNumber\": \"<string>\",\n  \"idClient\": \"<long>\",\n  \"status\": \"<boolean>\",\n  \"typeAccount\": \"AHORRO\"\n}",
+													"options": {
+														"raw": {
+															"headerFamily": "json",
+															"language": "json"
+														}
+													}
+												},
+												"url": {
+													"raw": "{{baseUrl}}/account/update/:id",
+													"host": [
+														"{{baseUrl}}"
+													],
+													"path": [
+														"account",
+														"update",
+														":id"
+													],
+													"variable": [
+														{
+															"key": "id"
+														}
+													]
+												}
+											},
+											"status": "Not Found",
+											"code": 404,
+											"_postman_previewlanguage": "text",
+											"header": [],
+											"cookie": [],
+											"body": ""
+										}
+									]
+								}
+							]
+						}
+					]
+				}
+			]
+		},
+		{
+			"name": "client",
+			"item": [
+				{
+					"name": "delete",
+					"item": [
+						{
+							"name": "{id}",
+							"item": [
+								{
+									"name": "Eliminar un cliente por su id",
+									"request": {
+										"method": "DELETE",
+										"header": [
+											{
+												"key": "Accept",
+												"value": "*/*"
+											}
+										],
+										"url": {
+											"raw": "{{baseUrl}}/client/delete/:id",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"client",
+												"delete",
+												":id"
+											],
+											"variable": [
+												{
+													"key": "id",
+													"value": "6",
+													"description": "(Required) id"
+												}
+											]
+										},
+										"description": "<b>Ejemplo de envio</b><br> URL: http://localhost:9012/client/delete/{id}<br><b>El parametro id corresponde al id del cliente"
+									},
+									"response": [
+										{
+											"name": "OK",
+											"originalRequest": {
+												"method": "DELETE",
+												"header": [
+													{
+														"key": "Accept",
+														"value": "*/*"
+													}
+												],
+												"url": {
+													"raw": "{{baseUrl}}/client/delete/:id",
+													"host": [
+														"{{baseUrl}}"
+													],
+													"path": [
+														"client",
+														"delete",
+														":id"
+													],
+													"variable": [
+														{
+															"key": "id"
+														}
+													]
+												}
+											},
+											"status": "OK",
+											"code": 200,
+											"_postman_previewlanguage": "text",
+											"header": [
+												{
+													"key": "Content-Type",
+													"value": "*/*"
+												}
+											],
+											"cookie": [],
+											"body": "{}"
+										},
+										{
+											"name": "No Content",
+											"originalRequest": {
+												"method": "DELETE",
+												"header": [],
+												"url": {
+													"raw": "{{baseUrl}}/client/delete/:id",
+													"host": [
+														"{{baseUrl}}"
+													],
+													"path": [
+														"client",
+														"delete",
+														":id"
+													],
+													"variable": [
+														{
+															"key": "id"
+														}
+													]
+												}
+											},
+											"status": "No Content",
+											"code": 204,
+											"_postman_previewlanguage": "text",
+											"header": [],
+											"cookie": [],
+											"body": ""
+										},
+										{
+											"name": "Unauthorized",
+											"originalRequest": {
+												"method": "DELETE",
+												"header": [],
+												"url": {
+													"raw": "{{baseUrl}}/client/delete/:id",
+													"host": [
+														"{{baseUrl}}"
+													],
+													"path": [
+														"client",
+														"delete",
+														":id"
+													],
+													"variable": [
+														{
+															"key": "id"
+														}
+													]
+												}
+											},
+											"status": "Unauthorized",
+											"code": 401,
+											"_postman_previewlanguage": "text",
+											"header": [],
+											"cookie": [],
+											"body": ""
+										},
+										{
+											"name": "Forbidden",
+											"originalRequest": {
+												"method": "DELETE",
+												"header": [],
+												"url": {
+													"raw": "{{baseUrl}}/client/delete/:id",
+													"host": [
+														"{{baseUrl}}"
+													],
+													"path": [
+														"client",
+														"delete",
+														":id"
+													],
+													"variable": [
+														{
+															"key": "id"
+														}
+													]
+												}
+											},
+											"status": "Forbidden",
+											"code": 403,
+											"_postman_previewlanguage": "text",
+											"header": [],
+											"cookie": [],
+											"body": ""
+										}
+									]
+								}
+							]
+						}
+					]
+				},
+				{
+					"name": "get",
+					"item": [
+						{
+							"name": "all",
+							"item": [
+								{
+									"name": "Obtener todos los clientes",
+									"request": {
+										"method": "GET",
+										"header": [
+											{
+												"key": "Accept",
+												"value": "*/*"
+											}
+										],
+										"url": {
+											"raw": "{{baseUrl}}/client/get/all",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"client",
+												"get",
+												"all"
+											]
+										},
+										"description": "<b>Ejemplo de envio</b><br> URL: http://localhost:9012/client/all"
+									},
+									"response": [
+										{
+											"name": "lista de clientes recuperada con exito ",
+											"originalRequest": {
+												"method": "GET",
+												"header": [
+													{
+														"key": "Accept",
+														"value": "*/*"
+													}
+												],
+												"url": {
+													"raw": "{{baseUrl}}/client/get/all",
+													"host": [
+														"{{baseUrl}}"
+													],
+													"path": [
+														"client",
+														"get",
+														"all"
+													]
+												}
+											},
+											"status": "OK",
+											"code": 200,
+											"_postman_previewlanguage": "text",
+											"header": [
+												{
+													"key": "Content-Type",
+													"value": "*/*"
+												}
+											],
+											"cookie": [],
+											"body": "[\n  {\n    \"address\": \"<string>\",\n    \"name\": \"<string>\",\n    \"password\": \"<string>\",\n    \"phone\": \"<string>\",\n    \"status\": \"<string>\"\n  },\n  {\n    \"address\": \"<string>\",\n    \"name\": \"<string>\",\n    \"password\": \"<string>\",\n    \"phone\": \"<string>\",\n    \"status\": \"<string>\"\n  }\n]"
+										},
+										{
+											"name": "Unauthorized",
+											"originalRequest": {
+												"method": "GET",
+												"header": [],
+												"url": {
+													"raw": "{{baseUrl}}/client/get/all",
+													"host": [
+														"{{baseUrl}}"
+													],
+													"path": [
+														"client",
+														"get",
+														"all"
+													]
+												}
+											},
+											"status": "Unauthorized",
+											"code": 401,
+											"_postman_previewlanguage": "text",
+											"header": [],
+											"cookie": [],
+											"body": ""
+										},
+										{
+											"name": "Forbidden",
+											"originalRequest": {
+												"method": "GET",
+												"header": [],
+												"url": {
+													"raw": "{{baseUrl}}/client/get/all",
+													"host": [
+														"{{baseUrl}}"
+													],
+													"path": [
+														"client",
+														"get",
+														"all"
+													]
+												}
+											},
+											"status": "Forbidden",
+											"code": 403,
+											"_postman_previewlanguage": "text",
+											"header": [],
+											"cookie": [],
+											"body": ""
+										},
+										{
+											"name": "Not Found",
+											"originalRequest": {
+												"method": "GET",
+												"header": [],
+												"url": {
+													"raw": "{{baseUrl}}/client/get/all",
+													"host": [
+														"{{baseUrl}}"
+													],
+													"path": [
+														"client",
+														"get",
+														"all"
+													]
+												}
+											},
+											"status": "Not Found",
+											"code": 404,
+											"_postman_previewlanguage": "text",
+											"header": [],
+											"cookie": [],
+											"body": ""
+										}
+									]
+								}
+							]
+						},
+						{
+							"name": "{id}",
+							"item": [
+								{
+									"name": "Obtener el cliente por su id",
+									"request": {
+										"method": "GET",
+										"header": [
+											{
+												"key": "Accept",
+												"value": "*/*"
+											}
+										],
+										"url": {
+											"raw": "{{baseUrl}}/client/get/:id",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"client",
+												"get",
+												":id"
+											],
+											"variable": [
+												{
+													"key": "id",
+													"value": "1",
+													"description": "(Required) id"
+												}
+											]
+										},
+										"description": "<b>Ejemplo de envio</b><br> URL: http://localhost:9012/client/{id}"
+									},
+									"response": [
+										{
+											"name": "lista de clientes recuperada con exito ",
+											"originalRequest": {
+												"method": "GET",
+												"header": [
+													{
+														"key": "Accept",
+														"value": "*/*"
+													}
+												],
+												"url": {
+													"raw": "{{baseUrl}}/client/get/:id",
+													"host": [
+														"{{baseUrl}}"
+													],
+													"path": [
+														"client",
+														"get",
+														":id"
+													],
+													"variable": [
+														{
+															"key": "id",
+															"value": "1"
+														}
+													]
+												}
+											},
+											"status": "OK",
+											"code": 200,
+											"_postman_previewlanguage": "text",
+											"header": [
+												{
+													"key": "Content-Type",
+													"value": "*/*"
+												}
+											],
+											"cookie": [],
+											"body": "{\n    \"id\": 1,\n    \"name\": \"Galo Pichucho\",\n    \"gender\": \"MASCULINO\",\n    \"age\": 26,\n    \"identification\": \"1719097745\",\n    \"address\": \"conocoto\",\n    \"phone\": \"0999273956\",\n    \"password\": \"fLrWwizWMq5aI7xRNlp4Bg==\",\n    \"status\": true\n}"
+										},
+										{
+											"name": "Not Found",
+											"originalRequest": {
+												"method": "GET",
+												"header": [],
+												"url": {
+													"raw": "{{baseUrl}}/client/get/:id",
+													"host": [
+														"{{baseUrl}}"
+													],
+													"path": [
+														"client",
+														"get",
+														":id"
+													],
+													"variable": [
+														{
+															"key": "id",
+															"value": "14"
+														}
+													]
+												}
+											},
+											"status": "Not Found",
+											"code": 404,
+											"_postman_previewlanguage": "text",
+											"header": [],
+											"cookie": [],
+											"body": "{\r\n    \"message\": \"Cliente con Id: 14 no encontrado\",\r\n    \"messageDebug\": \" cliente no encontrado, proporcione un id correcto\",\r\n    \"status\": \"BAD_REQUEST\",\r\n    \"timestamp\": \"2024-07-19 11:02:29\",\r\n    \"subErrors\": null\r\n}"
+										}
+									]
+								}
+							]
+						}
+					]
+				},
+				{
+					"name": "register",
+					"item": [
+						{
+							"name": "Registrar un nuevo cliente",
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									},
+									{
+										"key": "Accept",
+										"value": "*/*"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n  \"address\": \"Quito\",\n  \"age\": \"25\",\n  \"identification\": \"1719097780\",\n  \"name\": \"Juan Osorio\",\n  \"password\": \"123456\",\n  \"gender\": \"MASCULINO\",\n  \"phone\": \"098874587\"\n}",
+									"options": {
+										"raw": {
+											"headerFamily": "json",
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{baseUrl}}/client/register",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"client",
+										"register"
+									]
+								},
+								"description": "<b>Ejemplo de envio</b><br> URL: http://localhost:9012/client/register<br><b>Se debe ingresar todos los atributos pertinenetes al cliente (nombre, genero, edad, identificación, dirección, teléfono, contraseña y estado)</b><br>Genero: MASCULINO, FEMENINO, OTRO</b>"
+							},
+							"response": [
+								{
+									"name": "OK",
+									"originalRequest": {
+										"method": "POST",
+										"header": [
+											{
+												"key": "Content-Type",
+												"value": "application/json"
+											},
+											{
+												"key": "Accept",
+												"value": "*/*"
+											}
+										],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n  \"address\": \"Amazonas y NNUU\",\n  \"age\": \"20\",\n  \"identification\": \"1713778584\",\n  \"name\": \"Marianela Montalvo\",\n  \"password\": \"123456\",\n  \"gender\": \"FEMENINO\",\n  \"phone\": \"0998240734\"\n}",
+											"options": {
+												"raw": {
+													"headerFamily": "json",
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{baseUrl}}/client/register",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"client",
+												"register"
+											]
+										}
+									},
+									"status": "Created",
+									"code": 201,
+									"_postman_previewlanguage": "plain",
+									"header": [
+										{
+											"key": "Vary",
+											"value": "Origin"
+										},
+										{
+											"key": "Vary",
+											"value": "Access-Control-Request-Method"
+										},
+										{
+											"key": "Vary",
+											"value": "Access-Control-Request-Headers"
+										},
+										{
+											"key": "Content-Type",
+											"value": "text/plain;charset=UTF-8"
+										},
+										{
+											"key": "Content-Length",
+											"value": "19"
+										},
+										{
+											"key": "Date",
+											"value": "Fri, 19 Jul 2024 15:46:12 GMT"
+										},
+										{
+											"key": "Keep-Alive",
+											"value": "timeout=60"
+										},
+										{
+											"key": "Connection",
+											"value": "keep-alive"
+										}
+									],
+									"cookie": [],
+									"body": "Cliente Registrado!"
+								}
+							]
+						}
+					]
+				},
+				{
+					"name": "update",
+					"item": [
+						{
+							"name": "{id}",
+							"item": [
+								{
+									"name": "Editar un cliente por su id",
+									"request": {
+										"method": "PUT",
+										"header": [
+											{
+												"key": "Content-Type",
+												"value": "application/json"
+											},
+											{
+												"key": "Accept",
+												"value": "*/*"
+											}
+										],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n  \"address\": \"Av. Mariscal sucre\",\n  \"age\": \"30\",\n  \"gender\": \"MASCULINO\",\n  \"name\": \"Luis\",\n  \"phone\": \"0984912369\",\n  \"status\": true\n}",
+											"options": {
+												"raw": {
+													"headerFamily": "json",
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{baseUrl}}/client/update/:id",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"client",
+												"update",
+												":id"
+											],
+											"variable": [
+												{
+													"key": "id",
+													"value": "3",
+													"description": "(Required) id"
+												}
+											]
+										},
+										"description": "<b>Ejemplo de envio</b><br> URL: http://localhost:9012/client/update/{id}<br><b>El parametro id corresponde al id del cliente"
+									},
+									"response": [
+										{
+											"name": "Editar un cliente por su id ok",
+											"originalRequest": {
+												"method": "PUT",
+												"header": [
+													{
+														"key": "Content-Type",
+														"value": "application/json"
+													},
+													{
+														"key": "Accept",
+														"value": "*/*"
+													}
+												],
+												"body": {
+													"mode": "raw",
+													"raw": "{\n  \"address\": \"Av. Mariscal sucre\",\n  \"age\": \"30\",\n  \"gender\": \"MASCULINO\",\n  \"name\": \"Luis\",\n  \"phone\": \"0984912369\",\n  \"status\": true\n}",
+													"options": {
+														"raw": {
+															"headerFamily": "json",
+															"language": "json"
+														}
+													}
+												},
+												"url": {
+													"raw": "{{baseUrl}}/client/update/:id",
+													"host": [
+														"{{baseUrl}}"
+													],
+													"path": [
+														"client",
+														"update",
+														":id"
+													],
+													"variable": [
+														{
+															"key": "id",
+															"value": "3",
+															"description": "(Required) id"
+														}
+													]
+												}
+											},
+											"status": "OK",
+											"code": 200,
+											"_postman_previewlanguage": "plain",
+											"header": [
+												{
+													"key": "Vary",
+													"value": "Origin"
+												},
+												{
+													"key": "Vary",
+													"value": "Access-Control-Request-Method"
+												},
+												{
+													"key": "Vary",
+													"value": "Access-Control-Request-Headers"
+												},
+												{
+													"key": "Content-Type",
+													"value": "text/plain;charset=UTF-8"
+												},
+												{
+													"key": "Content-Length",
+													"value": "19"
+												},
+												{
+													"key": "Date",
+													"value": "Fri, 19 Jul 2024 16:05:00 GMT"
+												},
+												{
+													"key": "Keep-Alive",
+													"value": "timeout=60"
+												},
+												{
+													"key": "Connection",
+													"value": "keep-alive"
+												}
+											],
+											"cookie": [],
+											"body": "Cliente Modificado!"
+										},
+										{
+											"name": "OK",
+											"originalRequest": {
+												"method": "PUT",
+												"header": [
+													{
+														"key": "Content-Type",
+														"value": "application/json"
+													},
+													{
+														"key": "Accept",
+														"value": "*/*"
+													}
+												],
+												"body": {
+													"mode": "raw",
+													"raw": "{\n  \"address\": \"Av. Mariscal sucre\",\n  \"age\": \"30\",\n  \"gender\": \"MASCULINO\",\n  \"name\": \"Luis\",\n  \"phone\": \"0984912369\",\n  \"status\": true\n}",
+													"options": {
+														"raw": {
+															"headerFamily": "json",
+															"language": "json"
+														}
+													}
+												},
+												"url": {
+													"raw": "{{baseUrl}}/client/update/:id",
+													"host": [
+														"{{baseUrl}}"
+													],
+													"path": [
+														"client",
+														"update",
+														":id"
+													],
+													"variable": [
+														{
+															"key": "id",
+															"value": "3"
+														}
+													]
+												}
+											},
+											"status": "OK",
+											"code": 200,
+											"_postman_previewlanguage": "text",
+											"header": [
+												{
+													"key": "Content-Type",
+													"value": "*/*"
+												}
+											],
+											"cookie": [],
+											"body": "Cliente Modificado!"
+										},
+										{
+											"name": "Created",
+											"originalRequest": {
+												"method": "PUT",
+												"header": [
+													{
+														"key": "Content-Type",
+														"value": "application/json"
+													}
+												],
+												"body": {
+													"mode": "raw",
+													"raw": "{\n  \"address\": \"<string>\",\n  \"age\": \"<integer>\",\n  \"gender\": \"MASCULINO\",\n  \"name\": \"<string>\",\n  \"password\": \"<string>\",\n  \"phone\": \"<string>\",\n  \"status\": \"<boolean>\"\n}",
+													"options": {
+														"raw": {
+															"headerFamily": "json",
+															"language": "json"
+														}
+													}
+												},
+												"url": {
+													"raw": "{{baseUrl}}/client/update/:id",
+													"host": [
+														"{{baseUrl}}"
+													],
+													"path": [
+														"client",
+														"update",
+														":id"
+													],
+													"variable": [
+														{
+															"key": "id"
+														}
+													]
+												}
+											},
+											"status": "Created",
+											"code": 201,
+											"_postman_previewlanguage": "text",
+											"header": [],
+											"cookie": [],
+											"body": ""
+										},
+										{
+											"name": "Unauthorized",
+											"originalRequest": {
+												"method": "PUT",
+												"header": [
+													{
+														"key": "Content-Type",
+														"value": "application/json"
+													}
+												],
+												"body": {
+													"mode": "raw",
+													"raw": "{\n  \"address\": \"<string>\",\n  \"age\": \"<integer>\",\n  \"gender\": \"MASCULINO\",\n  \"name\": \"<string>\",\n  \"password\": \"<string>\",\n  \"phone\": \"<string>\",\n  \"status\": \"<boolean>\"\n}",
+													"options": {
+														"raw": {
+															"headerFamily": "json",
+															"language": "json"
+														}
+													}
+												},
+												"url": {
+													"raw": "{{baseUrl}}/client/update/:id",
+													"host": [
+														"{{baseUrl}}"
+													],
+													"path": [
+														"client",
+														"update",
+														":id"
+													],
+													"variable": [
+														{
+															"key": "id"
+														}
+													]
+												}
+											},
+											"status": "Unauthorized",
+											"code": 401,
+											"_postman_previewlanguage": "text",
+											"header": [],
+											"cookie": [],
+											"body": ""
+										},
+										{
+											"name": "Forbidden",
+											"originalRequest": {
+												"method": "PUT",
+												"header": [
+													{
+														"key": "Content-Type",
+														"value": "application/json"
+													}
+												],
+												"body": {
+													"mode": "raw",
+													"raw": "{\n  \"address\": \"<string>\",\n  \"age\": \"<integer>\",\n  \"gender\": \"MASCULINO\",\n  \"name\": \"<string>\",\n  \"password\": \"<string>\",\n  \"phone\": \"<string>\",\n  \"status\": \"<boolean>\"\n}",
+													"options": {
+														"raw": {
+															"headerFamily": "json",
+															"language": "json"
+														}
+													}
+												},
+												"url": {
+													"raw": "{{baseUrl}}/client/update/:id",
+													"host": [
+														"{{baseUrl}}"
+													],
+													"path": [
+														"client",
+														"update",
+														":id"
+													],
+													"variable": [
+														{
+															"key": "id"
+														}
+													]
+												}
+											},
+											"status": "Forbidden",
+											"code": 403,
+											"_postman_previewlanguage": "text",
+											"header": [],
+											"cookie": [],
+											"body": ""
+										},
+										{
+											"name": "Not Found",
+											"originalRequest": {
+												"method": "PUT",
+												"header": [
+													{
+														"key": "Content-Type",
+														"value": "application/json"
+													}
+												],
+												"body": {
+													"mode": "raw",
+													"raw": "{\n  \"address\": \"<string>\",\n  \"age\": \"<integer>\",\n  \"gender\": \"MASCULINO\",\n  \"name\": \"<string>\",\n  \"password\": \"<string>\",\n  \"phone\": \"<string>\",\n  \"status\": \"<boolean>\"\n}",
+													"options": {
+														"raw": {
+															"headerFamily": "json",
+															"language": "json"
+														}
+													}
+												},
+												"url": {
+													"raw": "{{baseUrl}}/client/update/:id",
+													"host": [
+														"{{baseUrl}}"
+													],
+													"path": [
+														"client",
+														"update",
+														":id"
+													],
+													"variable": [
+														{
+															"key": "id"
+														}
+													]
+												}
+											},
+											"status": "Not Found",
+											"code": 404,
+											"_postman_previewlanguage": "text",
+											"header": [],
+											"cookie": [],
+											"body": ""
+										}
+									]
+								}
+							]
+						}
+					]
+				}
+			]
+		},
+		{
+			"name": "movement",
+			"item": [
+				{
+					"name": "create",
+					"item": [
+						{
+							"name": "Crear un movimiento",
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									},
+									{
+										"key": "Accept",
+										"value": "*/*"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n  \"accountNumber\": \"478758\",\n  \"value\": \"500\"\n}",
+									"options": {
+										"raw": {
+											"headerFamily": "json",
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{baseUrl}}/movement/create",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"movement",
+										"create"
+									]
+								},
+								"description": "<b>Ejemplo de envio</b><br> URL: http://localhost:9012/movement/create<br><b>Se debe ingresar todos los atributos pertinenetes al movimiento (tipo de Movimiento, valor, cuenta)</b><br> Tipo de Movimiento ->  CREDITO, DEBITO"
+							},
+							"response": [
+								{
+									"name": "Movimiento registrado con exito",
+									"originalRequest": {
+										"method": "POST",
+										"header": [
+											{
+												"key": "Content-Type",
+												"value": "application/json"
+											},
+											{
+												"key": "Accept",
+												"value": "*/*"
+											}
+										],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n  \"accountNumber\": \"4787580\",\n  \"value\": \"50\"\n}",
+											"options": {
+												"raw": {
+													"headerFamily": "json",
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{baseUrl}}/movement/create",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"movement",
+												"create"
+											]
+										}
+									},
+									"status": "OK",
+									"code": 200,
+									"_postman_previewlanguage": "plain",
+									"header": [
+										{
+											"key": "Vary",
+											"value": "Origin"
+										},
+										{
+											"key": "Vary",
+											"value": "Access-Control-Request-Method"
+										},
+										{
+											"key": "Vary",
+											"value": "Access-Control-Request-Headers"
+										},
+										{
+											"key": "Content-Type",
+											"value": "text/plain;charset=UTF-8"
+										},
+										{
+											"key": "Content-Length",
+											"value": "31"
+										},
+										{
+											"key": "Date",
+											"value": "Fri, 19 Jul 2024 16:27:15 GMT"
+										},
+										{
+											"key": "Keep-Alive",
+											"value": "timeout=60"
+										},
+										{
+											"key": "Connection",
+											"value": "keep-alive"
+										}
+									],
+									"cookie": [],
+									"body": "Movimiento Bancario Registrado!"
+								},
+								{
+									"name": "No se puede registrar el cliente",
+									"originalRequest": {
+										"method": "POST",
+										"header": [
+											{
+												"key": "Content-Type",
+												"value": "application/json"
+											},
+											{
+												"key": "Accept",
+												"value": "*/*"
+											}
+										],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n  \"accountNumber\": \"4787580\",\n  \"value\": \"50\"\n}",
+											"options": {
+												"raw": {
+													"headerFamily": "json",
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{baseUrl}}/movement/create",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"movement",
+												"create"
+											]
+										}
+									},
+									"status": "Bad Request",
+									"code": 400,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "Vary",
+											"value": "Origin"
+										},
+										{
+											"key": "Vary",
+											"value": "Access-Control-Request-Method"
+										},
+										{
+											"key": "Vary",
+											"value": "Access-Control-Request-Headers"
+										},
+										{
+											"key": "Content-Type",
+											"value": "application/json"
+										},
+										{
+											"key": "Transfer-Encoding",
+											"value": "chunked"
+										},
+										{
+											"key": "Date",
+											"value": "Fri, 19 Jul 2024 16:28:29 GMT"
+										},
+										{
+											"key": "Connection",
+											"value": "close"
+										}
+									],
+									"cookie": [],
+									"body": "{\n    \"message\": \"Número de cuenta: 4787580 no encontrada\",\n    \"messageDebug\": \" cuenta no encontrada, proporcione una cuenta correcta\",\n    \"status\": \"BAD_REQUEST\",\n    \"timestamp\": \"2024-07-19 11:28:29\",\n    \"subErrors\": null\n}"
+								},
+								{
+									"name": "Saldo No disponible",
+									"originalRequest": {
+										"method": "POST",
+										"header": [
+											{
+												"key": "Content-Type",
+												"value": "application/json"
+											},
+											{
+												"key": "Accept",
+												"value": "*/*"
+											}
+										],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n  \"accountNumber\": \"478758\",\n  \"value\": \"-500\"\n}",
+											"options": {
+												"raw": {
+													"headerFamily": "json",
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{baseUrl}}/movement/create",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"movement",
+												"create"
+											]
+										}
+									},
+									"status": "Bad Request",
+									"code": 400,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "Vary",
+											"value": "Origin"
+										},
+										{
+											"key": "Vary",
+											"value": "Access-Control-Request-Method"
+										},
+										{
+											"key": "Vary",
+											"value": "Access-Control-Request-Headers"
+										},
+										{
+											"key": "Content-Type",
+											"value": "application/json"
+										},
+										{
+											"key": "Transfer-Encoding",
+											"value": "chunked"
+										},
+										{
+											"key": "Date",
+											"value": "Fri, 19 Jul 2024 17:03:53 GMT"
+										},
+										{
+											"key": "Connection",
+											"value": "close"
+										}
+									],
+									"cookie": [],
+									"body": "{\n    \"message\": \"Saldo no Disponible. El valor del movimiento no puede ser superior al del saldo actual\",\n    \"messageDebug\": \"Valor del movimiento invalido. Salgo Actual es:175.00\",\n    \"status\": \"BAD_REQUEST\",\n    \"timestamp\": \"2024-07-19 12:03:53\",\n    \"subErrors\": null\n}"
+								}
+							]
+						}
+					]
+				},
+				{
+					"name": "delete",
+					"item": [
+						{
+							"name": "{id}",
+							"item": [
+								{
+									"name": "Eliminar un movimiento por su id",
+									"request": {
+										"method": "DELETE",
+										"header": [
+											{
+												"key": "Accept",
+												"value": "*/*"
+											}
+										],
+										"url": {
+											"raw": "{{baseUrl}}/movement/delete/:id",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"movement",
+												"delete",
+												":id"
+											],
+											"variable": [
+												{
+													"key": "id",
+													"value": "<long>",
+													"description": "(Required) id"
+												}
+											]
+										},
+										"description": "<b>Ejemplo de envio</b><br> URL: http://localhost:9012/account/movement/{id}<br><b>El parametro id corresponde al id del movimiento"
+									},
+									"response": [
+										{
+											"name": "OK",
+											"originalRequest": {
+												"method": "DELETE",
+												"header": [
+													{
+														"key": "Accept",
+														"value": "*/*"
+													}
+												],
+												"url": {
+													"raw": "{{baseUrl}}/movement/delete/:id",
+													"host": [
+														"{{baseUrl}}"
+													],
+													"path": [
+														"movement",
+														"delete",
+														":id"
+													],
+													"variable": [
+														{
+															"key": "id"
+														}
+													]
+												}
+											},
+											"status": "OK",
+											"code": 200,
+											"_postman_previewlanguage": "text",
+											"header": [
+												{
+													"key": "Content-Type",
+													"value": "*/*"
+												}
+											],
+											"cookie": [],
+											"body": "{}"
+										},
+										{
+											"name": "No Content",
+											"originalRequest": {
+												"method": "DELETE",
+												"header": [],
+												"url": {
+													"raw": "{{baseUrl}}/movement/delete/:id",
+													"host": [
+														"{{baseUrl}}"
+													],
+													"path": [
+														"movement",
+														"delete",
+														":id"
+													],
+													"variable": [
+														{
+															"key": "id"
+														}
+													]
+												}
+											},
+											"status": "No Content",
+											"code": 204,
+											"_postman_previewlanguage": "text",
+											"header": [],
+											"cookie": [],
+											"body": ""
+										},
+										{
+											"name": "Unauthorized",
+											"originalRequest": {
+												"method": "DELETE",
+												"header": [],
+												"url": {
+													"raw": "{{baseUrl}}/movement/delete/:id",
+													"host": [
+														"{{baseUrl}}"
+													],
+													"path": [
+														"movement",
+														"delete",
+														":id"
+													],
+													"variable": [
+														{
+															"key": "id"
+														}
+													]
+												}
+											},
+											"status": "Unauthorized",
+											"code": 401,
+											"_postman_previewlanguage": "text",
+											"header": [],
+											"cookie": [],
+											"body": ""
+										},
+										{
+											"name": "Forbidden",
+											"originalRequest": {
+												"method": "DELETE",
+												"header": [],
+												"url": {
+													"raw": "{{baseUrl}}/movement/delete/:id",
+													"host": [
+														"{{baseUrl}}"
+													],
+													"path": [
+														"movement",
+														"delete",
+														":id"
+													],
+													"variable": [
+														{
+															"key": "id"
+														}
+													]
+												}
+											},
+											"status": "Forbidden",
+											"code": 403,
+											"_postman_previewlanguage": "text",
+											"header": [],
+											"cookie": [],
+											"body": ""
+										}
+									]
+								}
+							]
+						}
+					]
+				},
+				{
+					"name": "get",
+					"item": [
+						{
+							"name": "idAccount",
+							"item": [
+								{
+									"name": "{idAccount}",
+									"item": [
+										{
+											"name": "Obtener todos los movimeintos de una cuenta",
+											"request": {
+												"method": "GET",
+												"header": [
+													{
+														"key": "Accept",
+														"value": "*/*"
+													}
+												],
+												"url": {
+													"raw": "{{baseUrl}}/movement/get/idAccount/:idAccount",
+													"host": [
+														"{{baseUrl}}"
+													],
+													"path": [
+														"movement",
+														"get",
+														"idAccount",
+														":idAccount"
+													],
+													"variable": [
+														{
+															"key": "idAccount",
+															"value": "1",
+															"description": "(Required) idAccount"
+														}
+													]
+												},
+												"description": "<b>Ejemplo de envio</b><br> URL: http://localhost:9012/movement/idAccount/{idAccount}"
+											},
+											"response": [
+												{
+													"name": "lista de movimientos por cuenta recuperada con exito ",
+													"originalRequest": {
+														"method": "GET",
+														"header": [
+															{
+																"key": "Accept",
+																"value": "*/*"
+															}
+														],
+														"url": {
+															"raw": "{{baseUrl}}/movement/get/idAccount/:idAccount",
+															"host": [
+																"{{baseUrl}}"
+															],
+															"path": [
+																"movement",
+																"get",
+																"idAccount",
+																":idAccount"
+															],
+															"variable": [
+																{
+																	"key": "idAccount"
+																}
+															]
+														}
+													},
+													"status": "OK",
+													"code": 200,
+													"_postman_previewlanguage": "text",
+													"header": [
+														{
+															"key": "Content-Type",
+															"value": "*/*"
+														}
+													],
+													"cookie": [],
+													"body": "[\n  {\n    \"balance\": \"<number>\",\n    \"clientName\": \"<string>\",\n    \"dateMovement\": \"<dateTime>\",\n    \"initialBalance\": \"<number>\",\n    \"numberAccount\": \"<string>\",\n    \"status\": \"<string>\",\n    \"typeAccount\": \"<string>\",\n    \"typeMovement\": \"<string>\",\n    \"valueMovement\": \"<number>\"\n  },\n  {\n    \"balance\": \"<number>\",\n    \"clientName\": \"<string>\",\n    \"dateMovement\": \"<dateTime>\",\n    \"initialBalance\": \"<number>\",\n    \"numberAccount\": \"<string>\",\n    \"status\": \"<string>\",\n    \"typeAccount\": \"<string>\",\n    \"typeMovement\": \"<string>\",\n    \"valueMovement\": \"<number>\"\n  }\n]"
+												},
+												{
+													"name": "Unauthorized",
+													"originalRequest": {
+														"method": "GET",
+														"header": [],
+														"url": {
+															"raw": "{{baseUrl}}/movement/get/idAccount/:idAccount",
+															"host": [
+																"{{baseUrl}}"
+															],
+															"path": [
+																"movement",
+																"get",
+																"idAccount",
+																":idAccount"
+															],
+															"variable": [
+																{
+																	"key": "idAccount"
+																}
+															]
+														}
+													},
+													"status": "Unauthorized",
+													"code": 401,
+													"_postman_previewlanguage": "text",
+													"header": [],
+													"cookie": [],
+													"body": ""
+												},
+												{
+													"name": "Forbidden",
+													"originalRequest": {
+														"method": "GET",
+														"header": [],
+														"url": {
+															"raw": "{{baseUrl}}/movement/get/idAccount/:idAccount",
+															"host": [
+																"{{baseUrl}}"
+															],
+															"path": [
+																"movement",
+																"get",
+																"idAccount",
+																":idAccount"
+															],
+															"variable": [
+																{
+																	"key": "idAccount"
+																}
+															]
+														}
+													},
+													"status": "Forbidden",
+													"code": 403,
+													"_postman_previewlanguage": "text",
+													"header": [],
+													"cookie": [],
+													"body": ""
+												},
+												{
+													"name": "Not Found",
+													"originalRequest": {
+														"method": "GET",
+														"header": [],
+														"url": {
+															"raw": "{{baseUrl}}/movement/get/idAccount/:idAccount",
+															"host": [
+																"{{baseUrl}}"
+															],
+															"path": [
+																"movement",
+																"get",
+																"idAccount",
+																":idAccount"
+															],
+															"variable": [
+																{
+																	"key": "idAccount"
+																}
+															]
+														}
+													},
+													"status": "Not Found",
+													"code": 404,
+													"_postman_previewlanguage": "text",
+													"header": [],
+													"cookie": [],
+													"body": ""
+												}
+											]
+										}
+									]
+								}
+							]
+						},
+						{
+							"name": "{id}",
+							"item": [
+								{
+									"name": "Obtener el movimiento segun el id",
+									"request": {
+										"method": "GET",
+										"header": []
+									},
+									"response": []
+								}
+							]
+						}
+					]
+				},
+				{
+					"name": "update",
+					"item": [
+						{
+							"name": "{id}",
+							"item": [
+								{
+									"name": "Editar un movimiento",
+									"request": {
+										"method": "PUT",
+										"header": [
+											{
+												"key": "Content-Type",
+												"value": "application/json"
+											},
+											{
+												"key": "Accept",
+												"value": "*/*"
+											}
+										],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n  \"accountNumber\": \"<string>\",\n  \"dateMovement\": \"<dateTime>\",\n  \"typeMovement\": \"CREDITO\",\n  \"value\": \"<number>\"\n}",
+											"options": {
+												"raw": {
+													"headerFamily": "json",
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{baseUrl}}/movement/update/:id",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"movement",
+												"update",
+												":id"
+											],
+											"variable": [
+												{
+													"key": "id",
+													"value": "<long>",
+													"description": "(Required) id"
+												}
+											]
+										},
+										"description": "<b>Ejemplo de envio</b><br> URL: http://localhost:9012/movement/update/{id}<br><b>El parametro id corresponde al id del movimiento"
+									},
+									"response": [
+										{
+											"name": "OK",
+											"originalRequest": {
+												"method": "PUT",
+												"header": [
+													{
+														"key": "Content-Type",
+														"value": "application/json"
+													},
+													{
+														"key": "Accept",
+														"value": "*/*"
+													}
+												],
+												"body": {
+													"mode": "raw",
+													"raw": "{\n  \"accountNumber\": \"<string>\",\n  \"dateMovement\": \"<dateTime>\",\n  \"typeMovement\": \"CREDITO\",\n  \"value\": \"<number>\"\n}",
+													"options": {
+														"raw": {
+															"headerFamily": "json",
+															"language": "json"
+														}
+													}
+												},
+												"url": {
+													"raw": "{{baseUrl}}/movement/update/:id",
+													"host": [
+														"{{baseUrl}}"
+													],
+													"path": [
+														"movement",
+														"update",
+														":id"
+													],
+													"variable": [
+														{
+															"key": "id"
+														}
+													]
+												}
+											},
+											"status": "OK",
+											"code": 200,
+											"_postman_previewlanguage": "text",
+											"header": [
+												{
+													"key": "Content-Type",
+													"value": "*/*"
+												}
+											],
+											"cookie": [],
+											"body": "{}"
+										},
+										{
+											"name": "Created",
+											"originalRequest": {
+												"method": "PUT",
+												"header": [
+													{
+														"key": "Content-Type",
+														"value": "application/json"
+													}
+												],
+												"body": {
+													"mode": "raw",
+													"raw": "{\n  \"accountNumber\": \"<string>\",\n  \"dateMovement\": \"<dateTime>\",\n  \"typeMovement\": \"CREDITO\",\n  \"value\": \"<number>\"\n}",
+													"options": {
+														"raw": {
+															"headerFamily": "json",
+															"language": "json"
+														}
+													}
+												},
+												"url": {
+													"raw": "{{baseUrl}}/movement/update/:id",
+													"host": [
+														"{{baseUrl}}"
+													],
+													"path": [
+														"movement",
+														"update",
+														":id"
+													],
+													"variable": [
+														{
+															"key": "id"
+														}
+													]
+												}
+											},
+											"status": "Created",
+											"code": 201,
+											"_postman_previewlanguage": "text",
+											"header": [],
+											"cookie": [],
+											"body": ""
+										},
+										{
+											"name": "Unauthorized",
+											"originalRequest": {
+												"method": "PUT",
+												"header": [
+													{
+														"key": "Content-Type",
+														"value": "application/json"
+													}
+												],
+												"body": {
+													"mode": "raw",
+													"raw": "{\n  \"accountNumber\": \"<string>\",\n  \"dateMovement\": \"<dateTime>\",\n  \"typeMovement\": \"CREDITO\",\n  \"value\": \"<number>\"\n}",
+													"options": {
+														"raw": {
+															"headerFamily": "json",
+															"language": "json"
+														}
+													}
+												},
+												"url": {
+													"raw": "{{baseUrl}}/movement/update/:id",
+													"host": [
+														"{{baseUrl}}"
+													],
+													"path": [
+														"movement",
+														"update",
+														":id"
+													],
+													"variable": [
+														{
+															"key": "id"
+														}
+													]
+												}
+											},
+											"status": "Unauthorized",
+											"code": 401,
+											"_postman_previewlanguage": "text",
+											"header": [],
+											"cookie": [],
+											"body": ""
+										},
+										{
+											"name": "Forbidden",
+											"originalRequest": {
+												"method": "PUT",
+												"header": [
+													{
+														"key": "Content-Type",
+														"value": "application/json"
+													}
+												],
+												"body": {
+													"mode": "raw",
+													"raw": "{\n  \"accountNumber\": \"<string>\",\n  \"dateMovement\": \"<dateTime>\",\n  \"typeMovement\": \"CREDITO\",\n  \"value\": \"<number>\"\n}",
+													"options": {
+														"raw": {
+															"headerFamily": "json",
+															"language": "json"
+														}
+													}
+												},
+												"url": {
+													"raw": "{{baseUrl}}/movement/update/:id",
+													"host": [
+														"{{baseUrl}}"
+													],
+													"path": [
+														"movement",
+														"update",
+														":id"
+													],
+													"variable": [
+														{
+															"key": "id"
+														}
+													]
+												}
+											},
+											"status": "Forbidden",
+											"code": 403,
+											"_postman_previewlanguage": "text",
+											"header": [],
+											"cookie": [],
+											"body": ""
+										},
+										{
+											"name": "Not Found",
+											"originalRequest": {
+												"method": "PUT",
+												"header": [
+													{
+														"key": "Content-Type",
+														"value": "application/json"
+													}
+												],
+												"body": {
+													"mode": "raw",
+													"raw": "{\n  \"accountNumber\": \"<string>\",\n  \"dateMovement\": \"<dateTime>\",\n  \"typeMovement\": \"CREDITO\",\n  \"value\": \"<number>\"\n}",
+													"options": {
+														"raw": {
+															"headerFamily": "json",
+															"language": "json"
+														}
+													}
+												},
+												"url": {
+													"raw": "{{baseUrl}}/movement/update/:id",
+													"host": [
+														"{{baseUrl}}"
+													],
+													"path": [
+														"movement",
+														"update",
+														":id"
+													],
+													"variable": [
+														{
+															"key": "id"
+														}
+													]
+												}
+											},
+											"status": "Not Found",
+											"code": 404,
+											"_postman_previewlanguage": "text",
+											"header": [],
+											"cookie": [],
+											"body": ""
+										}
+									]
+								}
+							]
+						}
+					]
+				}
+			]
+		},
+		{
+			"name": "reports",
+			"item": [
+				{
+					"name": "estado de cuentas",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/reports/statusAccount/rangeDate/idClient/:idClient?initialDate=2024-06-18&endDate=2024-07-20",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"reports",
+								"statusAccount",
+								"rangeDate",
+								"idClient",
+								":idClient"
+							],
+							"query": [
+								{
+									"key": "initialDate",
+									"value": "2024-06-18"
+								},
+								{
+									"key": "endDate",
+									"value": "2024-07-20"
+								}
+							],
+							"variable": [
+								{
+									"key": "idClient",
+									"value": "1"
+								}
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "estado de cuentas ok",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{baseUrl}}/reports/statusAccount/rangeDate/idClient/:idClient?initialDate=2024-06-18&endDate=2024-07-20",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"reports",
+										"statusAccount",
+										"rangeDate",
+										"idClient",
+										":idClient"
+									],
+									"query": [
+										{
+											"key": "initialDate",
+											"value": "2024-06-18"
+										},
+										{
+											"key": "endDate",
+											"value": "2024-07-20"
+										}
+									],
+									"variable": [
+										{
+											"key": "idClient",
+											"value": "1"
+										}
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Vary",
+									"value": "Origin"
+								},
+								{
+									"key": "Vary",
+									"value": "Access-Control-Request-Method"
+								},
+								{
+									"key": "Vary",
+									"value": "Access-Control-Request-Headers"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Transfer-Encoding",
+									"value": "chunked"
+								},
+								{
+									"key": "Date",
+									"value": "Fri, 19 Jul 2024 20:05:10 GMT"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=60"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"account\": [\n        {\n            \"nameClient\": \"Galo Pichucho\",\n            \"numberAccount\": \"478758\",\n            \"initialBalance\": 100,\n            \"typeAccount\": \"CORRIENTE\",\n            \"status\": \"Activa\",\n            \"movements\": [\n                {\n                    \"dateMovement\": \"2024-07-19T17:05:45.416+00:00\",\n                    \"clientName\": \"Galo Pichucho\",\n                    \"numberAccount\": \"478758\",\n                    \"typeAccount\": \"CORRIENTE\",\n                    \"typeMovement\": \"CREDITO\",\n                    \"initialBalance\": 100,\n                    \"status\": \"Activa\",\n                    \"valueMovement\": 500,\n                    \"balance\": 675\n                },\n                {\n                    \"dateMovement\": \"2024-07-19T16:41:50.212+00:00\",\n                    \"clientName\": \"Galo Pichucho\",\n                    \"numberAccount\": \"478758\",\n                    \"typeAccount\": \"CORRIENTE\",\n                    \"typeMovement\": \"DEBITO\",\n                    \"initialBalance\": 100,\n                    \"status\": \"Activa\",\n                    \"valueMovement\": 25,\n                    \"balance\": 175\n                },\n                {\n                    \"dateMovement\": \"2024-07-19T16:40:31.585+00:00\",\n                    \"clientName\": \"Galo Pichucho\",\n                    \"numberAccount\": \"478758\",\n                    \"typeAccount\": \"CORRIENTE\",\n                    \"typeMovement\": \"CREDITO\",\n                    \"initialBalance\": 100,\n                    \"status\": \"Activa\",\n                    \"valueMovement\": 50,\n                    \"balance\": 200\n                },\n                {\n                    \"dateMovement\": \"2024-07-19T16:27:15.331+00:00\",\n                    \"clientName\": \"Galo Pichucho\",\n                    \"numberAccount\": \"478758\",\n                    \"typeAccount\": \"CORRIENTE\",\n                    \"typeMovement\": \"CREDITO\",\n                    \"initialBalance\": 100,\n                    \"status\": \"Activa\",\n                    \"valueMovement\": 50,\n                    \"balance\": 150\n                },\n                {\n                    \"dateMovement\": \"2024-07-19T16:11:15.750+00:00\",\n                    \"clientName\": \"Galo Pichucho\",\n                    \"numberAccount\": \"478758\",\n                    \"typeAccount\": \"CORRIENTE\",\n                    \"typeMovement\": \"CREDITO\",\n                    \"initialBalance\": 100,\n                    \"status\": \"Activa\",\n                    \"valueMovement\": 100,\n                    \"balance\": 100\n                }\n            ]\n        },\n        {\n            \"nameClient\": \"Galo Pichucho\",\n            \"numberAccount\": \"495878\",\n            \"initialBalance\": 25,\n            \"typeAccount\": \"AHORRO\",\n            \"status\": \"Activa\",\n            \"movements\": [\n                {\n                    \"dateMovement\": \"2024-07-19T17:23:06.588+00:00\",\n                    \"clientName\": \"Galo Pichucho\",\n                    \"numberAccount\": \"495878\",\n                    \"typeAccount\": \"AHORRO\",\n                    \"typeMovement\": \"CREDITO\",\n                    \"initialBalance\": 25,\n                    \"status\": \"Activa\",\n                    \"valueMovement\": 25,\n                    \"balance\": 25\n                }\n            ]\n        }\n    ]\n}"
+						}
+					]
+				}
+			]
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"packages": {},
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"packages": {},
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"key": "baseUrl",
+			"value": "http://localhost:9012"
+		}
+	]
+}
