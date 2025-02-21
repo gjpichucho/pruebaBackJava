@@ -1,0 +1,9 @@
+info:
+    project:
+        name: accountservice
+        version: 1.0.0
+spring:
+    application:
+        name: accountservice
+    profiles:
+        active: local

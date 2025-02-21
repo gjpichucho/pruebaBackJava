@@ -1,0 +1,17 @@
+server:
+    port: 8082
+spring:
+    datasource:
+        url: jdbc:postgresql://localhost:5432/proof-bank
+        username: postgres
+        password: root
+        driver-class-name: org.postgresql.Driver
+    r2dbc:
+        url: r2dbc:postgresql://pg-dfbdb02-galobsc-ecd5.l.aivencloud.com:15255/defaultdb?sslmode=require
+        username: avnadmin
+        password: AVNS_Fnix-ea89rAfzX3oSx4
+
+http-client:
+    api:
+        client:
+            base-url: http://127.0.0.1:8080
